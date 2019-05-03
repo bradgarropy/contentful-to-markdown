@@ -1,7 +1,7 @@
 {
     "name": "contentful-to-markdown",
     "version": "0.0.1",
-    "description": "<description>",
+    "description": "🔻 contentful to markdown converter",
     "keywords": [
         "contentful",
         "markdown",
