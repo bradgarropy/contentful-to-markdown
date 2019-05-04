@@ -22,7 +22,7 @@ CONTENTFUL_SPACE_ID=<space_id>
 CONTENTFUL_PREVIEW_API_ACCESS_TOKEN=<access_token>
 ```
 
-Now run! All Contentful posts will be exported to a `markdown` directory.
+Now run! All Contentful posts will be exported to a `posts` directory.
 
 ```
 npm start
