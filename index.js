@@ -15,7 +15,6 @@ const cleanup = () => {
 
 const getEntries = async() => {
     const entries = await client.getEntries()
-    console.log(entries.items)
     return entries.items
 }
 
@@ -55,14 +54,15 @@ const createMarkdown = post => {
 }
 
 const writeFile = (name, content) => {
-    const directory = "markdown"
+    const directory = "posts"
+    const path = `${directory}/${name}`
+    const file = `${path}/index.md`
 
-    if (!fs.existsSync(directory)) {
-        fs.mkdirSync(directory)
+    if (!fs.existsSync(path)) {
+        fs.mkdirSync(path, {recursive: true})
     }
 
-    const path = `${directory}/${name}`
-    fs.writeFileSync(path, content)
+    fs.writeFileSync(file, content)
 }
 
 const main = async() => {
@@ -76,9 +76,9 @@ const main = async() => {
         if (contentType === "post") {
             const post = createPost(entry)
             const markdown = createMarkdown(post)
-            const name = `${post.slug}.md`
 
-            writeFile(name, markdown)
+            console.log(post.title)
+            writeFile(post.slug, markdown)
         }
     })
 }
